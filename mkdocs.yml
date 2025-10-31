@@ -53,10 +53,14 @@ plugins:
         - web-flow
       # token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - i18n:
-      default_language: en
       languages:
-        en: English
-        fr: Français
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fr
+          name: Français
+          build: true
       docs_structure: folder
 
 markdown_extensions:
