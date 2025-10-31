@@ -1,24 +1,24 @@
-import os
-from argostranslate import package, translate
-
-import shutil
-import urllib.request
+import os, shutil
+import argostranslate.package
+import argostranslate.translate
 
 SRC_DIR = "docs"
 TMP_FR_DIR = "tmp_docs_fr"
+from_code = "en"
+to_code = "fr"
 
-MODEL_URL = "https://www.argosopentech.com/argospm/packages/translate-en_fr-1_2.argosmodel"
-MODEL_PATH = "translate-en_fr.argosmodel"
+# Download and install Argos Translate model if needed
+argostranslate.package.update_package_index()
+available_packages = argostranslate.package.get_available_packages()
+package_to_install = next(
+    filter(lambda x: x.from_code == from_code and x.to_code == to_code, available_packages)
+)
+argostranslate.package.install_from_path(package_to_install.download())
 
-# Install model if needed
-if not os.path.exists(MODEL_PATH):
-    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-    package.install_from_path(MODEL_PATH)
-
-translate.load_installed_languages()
-langs = translate.get_installed_languages()
-from_lang = [l for l in langs if l.code == "en"][0]
-to_lang = [l for l in langs if l.code == "fr"][0]
+argostranslate.translate.load_installed_languages()
+langs = argostranslate.translate.get_installed_languages()
+from_lang = [l for l in langs if l.code == from_code][0]
+to_lang = [l for l in langs if l.code == to_code][0]
 trans = from_lang.get_translation(to_lang)
 
 if os.path.exists(TMP_FR_DIR):
