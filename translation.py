@@ -2,7 +2,7 @@ import os, shutil
 import argostranslate.package
 import argostranslate.translate
 
-SRC_DIR = "docs"
+SRC_DIR = "docs/en"
 TMP_FR_DIR = "docs/fr"
 from_code = "en"
 to_code = "fr"
