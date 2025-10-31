@@ -25,7 +25,7 @@ jobs:
           pip install mkdocs-git-committers-plugin-2
           pip install argostranslate
       - name: Translate Markdown to French (temporary)
-        run: python translate_to_french.py
+        run: python translation.py
       - name: Build site (from translated docs)
         run: mkdocs build --verbose --site-dir public --docs-dir tmp_docs_fr # change docs-dir!
       # - name: Build site
