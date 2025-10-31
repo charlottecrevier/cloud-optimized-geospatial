@@ -24,10 +24,11 @@ jobs:
           pip install mkdocs-git-revision-date-localized-plugin
           pip install mkdocs-git-committers-plugin-2
           pip install argostranslate
+          pip install mkdocs-static-i18n
       - name: Translate Markdown to French (temporary)
         run: python translation.py
       - name: Build site (from translated docs)
-        run: mkdocs build --verbose --site-dir public --docs-dir tmp_docs_fr # change docs-dir!
+        run: mkdocs build --verbose --site-dir public #--docs-dir tmp_docs_fr # change docs-dir!
       # - name: Build site
       #   # env:
       #     # MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
