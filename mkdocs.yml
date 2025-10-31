@@ -44,14 +44,6 @@ plugins:
             show_if_no_docstring: true
             # docstring_section_style: table
             # show_docstring_modules : False
-  - git-revision-date-localized:
-      enable_creation_date: true
-  - git-committers:
-      repository: NRCan/cloud-optimized-geospatial
-      branch: main
-      exclude_committers: 
-        - web-flow
-      # token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - i18n:
       languages:
         - locale: en
@@ -62,6 +54,14 @@ plugins:
           name: Français
           build: true
       docs_structure: folder
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: NRCan/cloud-optimized-geospatial
+      branch: main
+      exclude_committers: 
+        - web-flow
+      # token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
 
 markdown_extensions:
   - pymdownx.snippets # THIS IS SICK!!!! https://facelessuser.github.io/pymdown-extensions/extensions/snippets/
