@@ -9,16 +9,14 @@ pip install shapely
 In this code you will : 
 
 - Query a STAC API with pystac-client;
-- Read values of remote COG based on coordinates with the sample functionality;
+- Read values of remote COG based on coordinates with the [sample()](https://rasterio.readthedocs.io/en/stable/api/rasterio.io.html#rasterio.io.DatasetReader.sample) functionality;
 
 !!! info
     This specific example uses the collection **mrdem-30** from CCMEO's datacube
 
 !!! Tip
-    The pixel value closest to the coordinate will be return by the sample() function. 
-    No interpolation is performed
-    
-    API definition: <https://rasterio.readthedocs.io/en/stable/api/rasterio.io.html#rasterio.io.DatasetReader.sample>
+    To perform the same request using gdal, refere to the [gdallocationinfo](https://gdal.org/en/stable/programs/gdallocationinfo.html) utility 
+
 """
 # --8<-- [start:code]
 import pystac_client
