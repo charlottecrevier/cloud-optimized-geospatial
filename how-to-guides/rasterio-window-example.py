@@ -1,5 +1,5 @@
 """
-## Read a portion of a remote COG
+## Read a portion of a remote COG - Bounding box
 
 For this example, you will need to also install [shapely](https://shapely.readthedocs.io/en/stable/installation.html):   
 ```bash
@@ -10,7 +10,7 @@ In this code you will :
 
 - Query a STAC API with pystac-client to get link to a COG;
 - Read a portion of a remote COG based on an AOI with the window functionality;
-- Optionally write the portion locally inside a .tif file
+- Write the portion locally inside a .tif file (Optional)
 
 !!! info
     This specific example uses the collection **mrdem-30** from CCMEO's datacube
@@ -73,7 +73,7 @@ with rasterio.open(links[0]) as src:
 
 # Perform analysis ...
 
-# Write the output array to a tiff file
+# (Optional) Write the output array to a tiff file
 output_tiff = r"path/to/output.tif"
 with rasterio.open(output_tiff, 'w', **metadata) as dst:
     dst.write(rst, 1)

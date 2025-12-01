@@ -42,6 +42,18 @@ For more details on the rasterio library, see the [rasterio] documentation.
 ```
 <!-- END: Read a portion of a cog using rasterio -->
 
+<!-- START: Read pixel with coord using rasterio -->
+::: how-to-guides.rasterio-point-example
+    options:
+        show_source: false
+        members: no
+        show_root_toc_entry: false # To remove the name of the file in the TOC
+
+``` py linenums="1" hl_lines="34-38"
+--8<-- "how-to-guides/rasterio-point-example.py:code"
+```
+<!-- END: Read pixel with coord cog using rasterio -->
+
 [rasterio installation]: https://rasterio.readthedocs.io/en/stable/installation.html
 [rasterio]: https://rasterio.readthedocs.io/en/latest/quickstart.html
 [Interacting with CCMEO STAC API]: pystac-client.md
