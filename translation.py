@@ -1,7 +1,3 @@
-from nrcan_ssl.ssl_utils import SSLUtils
-ssl_utils = SSLUtils()
-ssl_utils.set_nrcan_ssl()
-
 import os, shutil, re
 import argostranslate.package
 import argostranslate.translate
@@ -12,14 +8,14 @@ from_code = "en"
 to_code = "fr"
 
 # Download and install Argos Translate model if needed
-# argostranslate.package.update_package_index()
-# available_packages = argostranslate.package.get_available_packages()
-# package_to_install = next(
-#     filter(lambda x: x.from_code == from_code and x.to_code == to_code, available_packages)
-# )
-# argostranslate.package.install_from_path(package_to_install.download())
+argostranslate.package.update_package_index()
+available_packages = argostranslate.package.get_available_packages()
+package_to_install = next(
+    filter(lambda x: x.from_code == from_code and x.to_code == to_code, available_packages)
+)
+argostranslate.package.install_from_path(package_to_install.download())
 
-# argostranslate.translate.load_installed_languages()
+argostranslate.translate.load_installed_languages()
 langs = argostranslate.translate.get_installed_languages()
 from_lang = [l for l in langs if l.code == from_code][0]
 to_lang = [l for l in langs if l.code == to_code][0]
