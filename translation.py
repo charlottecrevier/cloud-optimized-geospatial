@@ -1,4 +1,4 @@
-import os, shutil
+import os, shutil, re
 import argostranslate.package
 import argostranslate.translate
 
@@ -25,16 +25,39 @@ if os.path.exists(TMP_FR_DIR):
     shutil.rmtree(TMP_FR_DIR)
 os.makedirs(TMP_FR_DIR, exist_ok=True)
 
+def escape_blocks(text):
+    """
+    Replaces each <!-- START: ... -->...<!-- END: ... --> block with a unique placeholder.
+    Returns (new_text, blocks), where blocks is a list of the skipped blocks.
+    """
+    # Regex to catch these comment blocks, including newlines (non-greedy)
+    block_regex = re.compile(r'(<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->)', re.MULTILINE)
+    blocks = []
+    def replacer(match):
+        blocks.append(match.group(0))
+        return f"%%%SKIP_BLOCK_{len(blocks) - 1}%%%"
+    new_text = block_regex.sub(replacer, text)
+    return new_text, blocks
+
+def restore_blocks(text, blocks):
+    for idx, block in enumerate(blocks):
+        text = text.replace(f"%%%SKIP_BLOCK_{idx}%%%", block)
+    return text
+
 for filename in os.listdir(SRC_DIR):
-    if filename.endswith(".md"):
-        with open(f"{SRC_DIR}/{filename}", "r", encoding="utf-8") as f:
+    src_path = os.path.join(SRC_DIR, filename)
+    dst_path = os.path.join(TMP_FR_DIR, filename)
+    if filename.endswith(".md") and os.path.isfile(src_path):
+        with open(src_path, "r", encoding="utf-8") as f:
             text = f.read()
-        french = trans.translate(text)
-        with open(f"{TMP_FR_DIR}/{filename}", "w", encoding="utf-8") as f:
-            f.write(french)
-    elif os.path.isdir(f"{SRC_DIR}/{filename}"):
-        # Recursively copy non-markdown directories (like images or nested folders)
-        shutil.copytree(f"{SRC_DIR}/{filename}", f"{TMP_FR_DIR}/{filename}", dirs_exist_ok=True)
+        # --- Skip/escape block translation ---
+        escaped_text, blocks = escape_blocks(text)
+        french_translated = trans.translate(escaped_text)
+        # --- Restore blocks after translation ---
+        final_text = restore_blocks(french_translated, blocks)
+        with open(dst_path, "w", encoding="utf-8") as f:
+            f.write(final_text)
+    elif os.path.isdir(src_path):
+        shutil.copytree(src_path, dst_path, dirs_exist_ok=True)
     else:
-        # Copy over any non-markdown files
-        shutil.copy2(f"{SRC_DIR}/{filename}", f"{TMP_FR_DIR}/{filename}")
+        shutil.copy2(src_path, dst_path)
