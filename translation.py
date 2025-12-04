@@ -27,16 +27,32 @@ os.makedirs(TMP_FR_DIR, exist_ok=True)
 
 def escape_blocks(text):
     """
-    Replaces each <!-- START: ... -->...<!-- END: ... --> block with a unique placeholder.
+    Replaces each
+    - <!-- START: ... --> ... <!-- END: ... -->
+    - [ ... ]
+    - ```sh ... ```
+    block with a unique placeholder.
     Returns (new_text, blocks), where blocks is a list of the skipped blocks.
     """
-    # Regex to catch these comment blocks, including newlines (non-greedy)
-    block_regex = re.compile(r'(<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->)', re.MULTILINE)
+    # Note: The order is important to avoid overlapping replacements.
+    # 1. Match <!-- START: ... --> ... <!-- END: ... -->
+    # 2. Match ```sh ... ```
+    # 3. Match [ ... ] (non-greedy, may span lines)
+
+    regex = re.compile(
+        r'('
+        r'<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->'          # HTML comment blocks
+        r'|```sh(?:.|\n)*?```'                                 # Fenced sh code blocks
+        r'|\[[^\[\]]*?\]'                                      # [ ... ] (not nested, simple)
+        r')',
+        re.MULTILINE
+    )
+
     blocks = []
     def replacer(match):
         blocks.append(match.group(0))
         return f"%%%SKIP_BLOCK_{len(blocks) - 1}%%%"
-    new_text = block_regex.sub(replacer, text)
+    new_text = regex.sub(replacer, text)
     return new_text, blocks
 
 def restore_blocks(text, blocks):
