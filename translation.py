@@ -30,20 +30,15 @@ def escape_blocks(text):
     Replaces each
     - <!-- START: ... --> ... <!-- END: ... -->
     - [ ... ]
-    - ```sh ... ```
-    block with a unique placeholder.
+    - ``` ... ```
+    block with a unique HTML comment placeholder.
     Returns (new_text, blocks), where blocks is a list of the skipped blocks.
     """
-    # Note: The order is important to avoid overlapping replacements.
-    # 1. Match <!-- START: ... --> ... <!-- END: ... -->
-    # 2. Match ```sh ... ```
-    # 3. Match [ ... ] (non-greedy, may span lines)
-
     regex = re.compile(
         r'('
-        r'<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->'          # HTML comment blocks
-        r'|```(?:.|\n)*?```'                                 # Fenced sh code blocks
-        r'|\[[^\[\]]*?\]'                                      # [ ... ] (not nested, simple)
+        r'<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->'        # HTML comment blocks
+        r'|```(?:.|\n)*?```'                                 # Any fenced code block
+        r'|$$[^\[$$]*?\]'                                    # [ ... ] (not nested, simple)
         r')',
         re.MULTILINE
     )
@@ -51,13 +46,13 @@ def escape_blocks(text):
     blocks = []
     def replacer(match):
         blocks.append(match.group(0))
-        return f"%%%SKIP_BLOCK_{len(blocks) - 1}%%%"
+        return f"<!--SKIP_BLOCK_{len(blocks)-1}-->"
     new_text = regex.sub(replacer, text)
     return new_text, blocks
 
 def restore_blocks(text, blocks):
     for idx, block in enumerate(blocks):
-        text = text.replace(f"%%%SKIP_BLOCK_{idx}%%%", block)
+        text = text.replace(f"<!--SKIP_BLOCK_{idx}-->", block)
     return text
 
 for filename in os.listdir(SRC_DIR):
