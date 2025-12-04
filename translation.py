@@ -42,7 +42,7 @@ def escape_blocks(text):
     regex = re.compile(
         r'('
         r'<!-- START:.*?-->(?:.|\n)*?<!-- END:.*?-->'          # HTML comment blocks
-        r'|```sh(?:.|\n)*?```'                                 # Fenced sh code blocks
+        r'|```(?:.|\n)*?```'                                 # Fenced sh code blocks
         r'|\[[^\[\]]*?\]'                                      # [ ... ] (not nested, simple)
         r')',
         re.MULTILINE

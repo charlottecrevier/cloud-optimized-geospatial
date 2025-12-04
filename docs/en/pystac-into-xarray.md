@@ -20,6 +20,7 @@ Load a single COG, using the link to the s3 object, into an xarray.
 
 Rioxarray is based on rasterio, and can be used to read data into Xarray object. The developers of the rioxarray library provide additional usage examples, like this [one](https://corteva.github.io/rioxarray/stable/examples/read-locks.html).
 
+<!-- START: escape translation -->
 ``` sh
 --8<-- "how-to-guides/rioxarray-requirements.txt"
 ```
@@ -31,6 +32,7 @@ Source :  [rioxarray installation]
         members: no
         show_root_toc_entry: false # To remove the name of the file in the TOC
 
+<!-- END: Escape translation -->
 !!! Note 
     When using `rioxarray.open_rasterio()` set `chunks` to enable lazy loading with Dask. This allows Dask to read data in smaller chunks, improving speed and memory usage through parallel computing. For example, a `chunk` size of 1000 for both x and y means Dask reads 100x100 boxes instead of the entire array, processing multiple chunks simultaneously.
 
@@ -74,6 +76,7 @@ If you have problems with the installation, please refer to [stackstac installat
 ``` py linenums="1" hl_lines="36-41"
 --8<-- "how-to-guides/stackstac-example.py:code"
 ```
+<!-- END: Read with stackstac-stac -->
 
 See [working-with-xarray-object] or [community-notebook-complete-examples] section for an example on using Xarray object.
 ### Using [odc-stac]
@@ -95,6 +98,7 @@ If you have problems with the installation, please refer to [odc-stac installati
 ``` py linenums="1" hl_lines="38-41"
 --8<-- "how-to-guides/odc-stac-example.py:code"
 ```
+<!-- END: Read with odc-stac -->
 See [working-with-xarray-object] or [community-notebook-complete-examples] section for an example on using Xarray object.
 
 ## Working with Xarray object

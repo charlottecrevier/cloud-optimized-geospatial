@@ -6,14 +6,6 @@ from the Canada Center for Mapping and Earth Observation (CCMEO) datacube.
 !!! info "Link to CCMEO COG collections "
     STAC API : <https://datacube.services.geo.ca/stac/api/>  
     STAC API via STAC-Browser : <https://radiantearth.github.io/stac-browser/#/external/datacube.services.geo.ca/stac/api/?.language=en>
-
-<!--- 
-What should be on the main page : 
-A single sentence that says what the product is, succinctly and memorably.
-A paragraph of one to three short sentences, that describe what the product does.
-A third paragraph of similar length, this time explaining what need the product meets.
-Finally, a paragraph that describes whom the product is useful for.
--->
 ---
 
 ## In this site...
@@ -21,18 +13,18 @@ Finally, a paragraph that describes whom the product is useful for.
 -   __How-to guides__
 
     ---
-
     **Code examples** covering key operations and common tasks
+    <!-- START: Escape translation-->
     :arrow_right: [how-to guides](pystac-client.md)
-
+    <!-- END: Escape translation-->
+    
 -   __External references__
 
     ---
-
+    <!-- START: Escape translation-->
     :arrow_right: [**external references**](reference.md)  
+    <!-- END: Escape translation-->
 
-
-    <!-- :arrow_right: [Quick links](reference.md) -->
 </div>
 ---
 
