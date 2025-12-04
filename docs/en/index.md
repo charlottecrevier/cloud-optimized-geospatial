@@ -9,24 +9,22 @@ from the Canada Center for Mapping and Earth Observation (CCMEO) datacube.
 ---
 
 ## In this site...
+<!-- START: Escape translation-->
 <div class="grid cards" markdown>
 -   __How-to guides__
 
     ---
     **Code examples** covering key operations and common tasks
-    <!-- START: Escape translation-->
     :arrow_right: [how-to guides](pystac-client.md)
-    <!-- END: Escape translation-->
     
 -   __External references__
 
     ---
-    <!-- START: Escape translation-->
     :arrow_right: [**external references**](reference.md)  
-    <!-- END: Escape translation-->
 
 </div>
 ---
+<!-- END: Escape translation-->
 
 ## Libraries used in the examples:
 
@@ -59,6 +57,7 @@ The examples are released under the [Open Government License - Canada](https://o
     All the libraries and resources presented here are open-source and have their own licensing.
     Please refer to the specific libraries documentation for licensing information.
 
+<!-- START: Escape translation-->
 [pystac-client]: https://pystac-client.readthedocs.io/en/stable/usage.html
 [rasterio]: https://rasterio.readthedocs.io/en/latest/quickstart.html
 [stackstac]: https://stackstac.readthedocs.io/en/latest/basic.html
@@ -68,3 +67,4 @@ The examples are released under the [Open Government License - Canada](https://o
 *[COG]: Cloud Optimized GeoTIFF
 *[CCMEO]: Canada Center for Mapping and Earth Observation, Natural Resources Canada
 *[STAC]: Spatio-Temporal Asset Catalog
+<!-- END: Escape translation-->

@@ -13,7 +13,7 @@ STAC API. Please refer to those and consult the [pystac-client documentation] fo
 
 For certificate error while accessing the STAC API, see [using custom certificate] documentation
 
-<!-- START: Get a list of collections using pystac-client -->
+<!-- START: Escape translation -->
 ::: how-to-guides.pystac-client-collections-example
     options:
         show_source: false
@@ -24,9 +24,7 @@ For certificate error while accessing the STAC API, see [using custom certificat
 ``` py linenums="1"
 --8<-- "how-to-guides/pystac-client-collections-example.py:code"
 ```
-<!-- END: Get a list of collections using pystac-client -->
 
-<!-- START: Get a list of items using pystac-client -->
 ::: how-to-guides.pystac-client-items-example
     options:
         show_source: false
@@ -38,7 +36,6 @@ For more details on search parameters available with pystac-client, see [items s
 ``` py linenums="1"
 --8<-- "how-to-guides/pystac-client-items-example.py:code"
 ```
-<!-- END: Get a list of items using pystac-client -->
 
 [pystac-client]: https://github.com/stac-utils/pystac-client
 [items search]: https://pystac-client.readthedocs.io/en/stable/usage.html#itemsearch
@@ -49,5 +46,5 @@ For more details on search parameters available with pystac-client, see [items s
 *[COG]: Cloud Optimized GeoTIFF
 *[STAC]: Spatio-Temporal Asset Catalog
 *[CCMEO]: Canada Center for Mapping and Earth Observation, Natural Resources Canada
-
+<!-- END: Escape translation -->
 

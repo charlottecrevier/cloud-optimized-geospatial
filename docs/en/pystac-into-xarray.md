@@ -111,6 +111,7 @@ See `Xarray.DataArray` for details on methods : <https://docs.xarray.dev/en/stab
 - [Loading multi-collections in a Xarray.Dataset]
 - [Calculating the flow direction using open source library pyflwdir and Xarray.DataArray]
 
+<!-- START: Escape translation -->
 [Access COG data using rioxarray]: example-cogs.md/#using-rioxarray
 [Xarray]: https://docs.xarray.dev/en/stable/
 [Xarray: Parallel Computing with Dask]: https://docs.xarray.dev/en/stable/user-guide/dask.html
@@ -133,3 +134,4 @@ See `Xarray.DataArray` for details on methods : <https://docs.xarray.dev/en/stab
 <!-- TODO : Find a better way to link those jupyternotebooks... -->
 [Loading multi-collections in a Xarray.Dataset]: https://github.com/NRCan/cloud-optimized-geospatial/blob/ec2de7af4249ee53b9c1cdf106e8fa9b6118b5cb/how-to-guides/notebook/multi-collection-example.ipynb
 [Calculating the flow direction using open source library pyflwdir and Xarray.DataArray]: https://github.com/NRCan/cloud-optimized-geospatial/blob/ec2de7af4249ee53b9c1cdf106e8fa9b6118b5cb/how-to-guides/notebook/pyflwdir-example.ipynb
+<!-- END: Escape translation -->

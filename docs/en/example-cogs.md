@@ -18,7 +18,7 @@ For more details on the rasterio library, see the [rasterio] documentation.
 
     For more details on how to discover data through the STAC API, see the **[Interacting with CCMEO STAC API]** section
 
-<!-- START: Read the header of a cog using rasterio -->
+<!-- START: Escape translation -->
 ::: how-to-guides.rasterio-header-example
     options:
         show_source: false
@@ -28,9 +28,7 @@ For more details on the rasterio library, see the [rasterio] documentation.
 ``` py linenums="1" hl_lines="23-35"
 --8<-- "how-to-guides/rasterio-header-example.py:code"
 ```
-<!-- END: Read the header of a cog using rasterio -->
 
-<!-- START: Read a portion of a cog using rasterio -->
 ::: how-to-guides.rasterio-window-example
     options:
         show_source: false
@@ -40,7 +38,7 @@ For more details on the rasterio library, see the [rasterio] documentation.
 ``` py linenums="1" hl_lines="27-37"
 --8<-- "how-to-guides/rasterio-window-example.py:code"
 ```
-<!-- END: Read a portion of a cog using rasterio -->
+
 
 [rasterio installation]: https://rasterio.readthedocs.io/en/stable/installation.html
 [rasterio]: https://rasterio.readthedocs.io/en/latest/quickstart.html
@@ -50,3 +48,5 @@ For more details on the rasterio library, see the [rasterio] documentation.
 *[COG]: Cloud Optimized GeoTIFF
 *[STAC]: Spatio-Temporal Asset Catalog
 *[CCMEO]: Canada Center for Mapping and Earth Observation, Natural Resources Canada
+
+<!-- END: Escape translation -->
