@@ -46,13 +46,13 @@ def escape_blocks(text):
     blocks = []
     def replacer(match):
         blocks.append(match.group(0))
-        return f"<!--SKIP_BLOCK_{len(blocks)-1}-->"
+        return f"<!--SKIP {len(blocks)-1}-->"
     new_text = regex.sub(replacer, text)
     return new_text, blocks
 
 def restore_blocks(text, blocks):
     for idx, block in enumerate(blocks):
-        text = text.replace(f"<!--SKIP_BLOCK_{idx}-->", block)
+        text = text.replace(f"<!--SKIP {idx}-->", block)
     return text
 
 for filename in os.listdir(SRC_DIR):
