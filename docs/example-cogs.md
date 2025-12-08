@@ -4,6 +4,11 @@ optimized advantages, being able to access a **[portion of the data]** without h
 
 See <https://guide.cloudnativegeo.org/>
 
+!!! Note
+    The following examples starts with a request to the CCMEO STAC API via the pystac-client library.  
+
+    For more details on how to discover data through the STAC API, see the **[Interacting with CCMEO STAC API]** section
+
 ## Using [rasterio]
 
 ``` sh
@@ -47,6 +52,8 @@ See <https://guide.cloudnativegeo.org/>
 <!-- END: Read pixel with coord cog using rasterio -->
 
 [rasterio installation]: https://rasterio.readthedocs.io/en/stable/installation.html
+[rasterio]: https://rasterio.readthedocs.io/en/latest/quickstart.html
+[Interacting with CCMEO STAC API]: pystac-client.md
 [portion of the data]: #how-to-guides.rasterio-window-example--read-a-portion-of-a-remote-cog
 
 *[COG]: Cloud Optimized GeoTIFF

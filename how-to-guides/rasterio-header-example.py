@@ -2,11 +2,6 @@
 The developers of the rasterio library provide additional examples of usage. 
 For more details on the rasterio library, see the [rasterio](https://rasterio.readthedocs.io/en/latest/quickstart.html) documentation.
 
-!!! Note
-    The following examples starts with a request to the CCMEO STAC API via the pystac-client library.  
-
-    For more details on how to discover data through the STAC API, see the **[Interacting with CCMEO STAC API]**(docs/pystac-client.md) section
-
 ## Read the header of a remote COG
 
 In this code you will : 
