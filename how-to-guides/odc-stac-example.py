@@ -1,4 +1,9 @@
 """
+This is a third party library based on Xarray, but not listed under the Xarray documentation. 
+
+If you have problems with the installation, please refer to [odc-stac installation](https://odc-stac.readthedocs.io/en/latest/intro.html#installation).
+
+
 ### Load pystac items into an Xarray
 
 In this code you will : 

@@ -1,4 +1,9 @@
 """
+This is a third party library based on Xarray, but not listed under the Xarray documentation. 
+
+If you have problems with the installation, please refer to [stackstac installation](https://stackstac.readthedocs.io/en/latest/#installation).
+
+
 ### Load pystac items into an Xarray
 
 In this code you will : 
