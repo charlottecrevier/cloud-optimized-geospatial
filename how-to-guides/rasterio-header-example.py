@@ -1,4 +1,7 @@
 """
+The developers of the rasterio library provide additional examples of usage. 
+For more details on the rasterio library, see the [rasterio](https://rasterio.readthedocs.io/en/latest/quickstart.html) documentation.
+
 ## Read the header of a remote COG
 
 In this code you will : 

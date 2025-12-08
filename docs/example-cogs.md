@@ -4,19 +4,16 @@ optimized advantages, being able to access a **[portion of the data]** without h
 
 See <https://guide.cloudnativegeo.org/>
 
+!!! Note
+    The following examples starts with a request to the CCMEO STAC API via the pystac-client library.  
+
+    For more details on how to discover data through the STAC API, see the **[Interacting with CCMEO STAC API]** section
+
 ## Using [rasterio]
 
 ``` sh
 --8<-- "how-to-guides/rasterio-requirements.txt:2:2"
 ```
-
-The developers of the rasterio library provide additional examples of usage. 
-For more details on the rasterio library, see the [rasterio] documentation.
-
-!!! Note
-    The following examples starts with a request to the CCMEO STAC API via the pystac-client library.  
-
-    For more details on how to discover data through the STAC API, see the **[Interacting with CCMEO STAC API]** section
 
 <!-- START: Read the header of a cog using rasterio -->
 ::: how-to-guides.rasterio-header-example
